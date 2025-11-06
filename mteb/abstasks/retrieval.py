@@ -341,12 +341,12 @@ class AbsTaskRetrieval(AbsTask):
             Dictionary of evaluation scores
         """
         # ensure queries format (see #3030)
-        data_split["relevant_docs"], data_split["queries"] = (
+        data_split["relevant_docs"], data_split["queries"] = ( 
             _filter_queries_without_positives(
                 data_split["relevant_docs"], data_split["queries"]
             )
         )
-        retriever = RetrievalEvaluator(
+        retriever = RetrievalEvaluator( ## embedd model here
             corpus=data_split["corpus"],
             queries=data_split["queries"],
             task_metadata=self.metadata,
